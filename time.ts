@@ -1,7 +1,8 @@
 export class Time{
     constructor(
-        public minute: number,
-        public hour: number
-    ){}
+        public hour: number,
+        public minute: number        
+    ){}    
+    }
 
-}
+

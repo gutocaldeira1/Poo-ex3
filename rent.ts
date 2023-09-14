@@ -3,19 +3,22 @@ import { Time } from "./time";
 import { User } from "./user";
 
 export class Rent {
+    // static bike: Bike;
+    // static user: User;
+    // stati
     private constructor(
         public bike: Bike,
         public user: User,
-        public start: Time,
-        public valor?: number,
-        public end?: Time
-    ) { }
+        public startTime: Time,
+        public endTime?: Time,
+        public preço?: number
+    ) {}
 
-    static create(bike: Bike, user: User,start: Time): Rent {
-            return new Rent(bike, user, start);
+    static create(rents: Rent[], bike: Bike, user: User, startTime: Time): Rent {
+        return new Rent(bike, user, startTime)
     }
-
-    valorTot(star: Time, end: Time){
-        return ((end.hour*60 + end.minute) - (star.hour* 60 + star.minute))*0.3
+   
+    static valor(startTime: Time, endTime: Time): number{
+        return ((endTime.hour * 60 + endTime.minute) - (startTime.hour * 60 + startTime.minute)) * 0,25
     }
 }

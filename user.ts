@@ -1,4 +1,4 @@
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt'
 
 export class User {
     constructor(
@@ -8,12 +8,13 @@ export class User {
         public id?: string
     ) {}
 
-    async setPassword(password: string): Promise<void> {
-        const saltRounds = 10; // Você pode ajustar o número de salt rounds conforme necessário
-        this.password = await bcrypt.hash(password, saltRounds);
-    }
+        async cryptpassword(password: string): Promise <void>{
+            const saltRound = 10
+            this.password = await bcrypt.hash(password, saltRound)
+        }
 
-    async checkPassword(inputPassword: string): Promise<boolean> {
-        return await bcrypt.compare(inputPassword, this.password);
-    }
+        async checkpassword(insertPassword: string): Promise <boolean>{
+            return bcrypt.compare(insertPassword, this.password)
+        }
+
 }
